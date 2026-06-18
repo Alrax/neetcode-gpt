@@ -26,11 +26,14 @@ class Solution:
         #   3. Update: weights[j] -= learning_rate * gradient
         # Return np.round(final_weights, 5)
 
+        final_weights = initial_weights.copy() # to avoid editing original array
 
-        final_weights = initial_weights
-        for i in range(num_iterations):
+        for _ in range(num_iterations):
+
             model_prediction = self.get_model_prediction(X, final_weights)
+
             for j in range(len(final_weights)):
-                final_weights[j] = final_weights[j] - self.learning_rate * self.get_derivative(model_prediction, Y, len(X), X, j)
+
+                final_weights[j] -= self.learning_rate * self.get_derivative(model_prediction, Y, len(X), X, j)
 
         return np.round(final_weights, 5)
