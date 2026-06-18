@@ -19,5 +19,5 @@ class Solution:
                 s = 1 / (1 + np.exp(-z))
                 return np.round(s, 5)
             case 'relu':
-                r = max(0.0, z)
+                r = np.maximum(0.0, z)
                 return np.round(r, 5)
