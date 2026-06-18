@@ -7,7 +7,8 @@ class Solution:
         # X is (n, m), weights is (m,) -> return (n,) predictions
         # Round to 5 decimal places
 
-        return np.round(np.dot(X, weights), 5)
+        pred = np.dot(X, weights)
+        return np.round(pred, 5)
 
     def get_error(self, model_prediction: NDArray[np.float64], ground_truth: NDArray[np.float64]) -> float:
         # Compute mean squared error between predictions and ground truth
