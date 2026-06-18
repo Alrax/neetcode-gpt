@@ -13,11 +13,11 @@ class Solution:
         # Sigmoid: σ(z) = 1 / (1 + exp(-z))
         # ReLU: max(0, z)
         # return round(your_answer, 5)
+
         z = np.dot(x, w) + b
-        match activation: 
-            case 'sigmoid':
-                s = 1 / (1 + np.exp(-z))
-                return np.round(s, 5)
-            case 'relu':
-                r = np.maximum(0.0, z)
-                return np.round(r, 5)
+        
+        if activation == 'sigmoid':
+            s = 1 / (1 + np.exp(-z))
+        else:
+            s = np.maximum(0.0, z)
+        return np.round(s, 5)
